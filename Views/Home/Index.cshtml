@@ -1,0 +1,203 @@
+﻿@model BookStore.Models.BookViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<span class="badge badge-danger bagde-position"> @ViewData["Counter"]</span>*@
+
+@* Search Section *@
+<div class="container-fluid text-center">
+    <form asp-action="Search">
+        <div class="search-main p-3">
+            <button type="submit" class="btn search-btn-icon"><i class="fa fa-search"></i></button>
+            <input type="text" class="form-control search-box-style" id="searchbook" />
+            <button type="submit" class="btn btn-success search-btn">Search</button>
+        </div>
+    </form>
+</div>
+
+@* Banner Section *@
+<div class="container-fluid text-left bookcover-background">
+    <h1 class="display-4 banner-text-style1">Welcome to our online bookstore</h1>
+    <h4 class="display-4 banner-text-style2">Find Your Next Adventure</h4>
+</div>
+
+@* All Popular Books Section *@
+<div class="custom-container pt-5">
+    <h2>Popular Books!</h2>
+    <h6><em>Some of our most sold books!</em></h6>
+    <div class="row">
+        @foreach (var item in Model.TopPopularBooks)
+        {
+            <div class="col-12 col-md-2 mt-5">
+                <div class="card h-100">
+                    <img src="~/images/@item.PhotoURL" class="img-fluid" style="max-height: 350px;" />
+                    <div class="card-body">
+                        <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Title) </h5>
+                        <h6 class=""><em>by</em> @Html.DisplayFor(modelItem => item.AuthorName)</h6>
+                        <hr />
+                        <p class="card-text">Category: @Html.DisplayFor(modelItem => item.CategoryName)</p>
+                        <p class="card-text">Genre: @Html.DisplayFor(modelItem => item.Genre)</p>
+                        <p class="card-text">Book Type: @Html.DisplayFor(modelItem => item.BookType)</p>
+                        <button class="btn btn-secondary btn-block" id="addToWishlistFromPopular" onclick="AddToWishlist(@item.Id)">
+                            <i class="fas fa-plus"></i> &nbsp; Add To Wishlist
+                        </button>
+                        <button class="btn btn-success btn-block" id="addToCartFromPopular" onclick="AddToCart(@item.Id)">
+                            <i class="fas fa-cart-plus"></i> &nbsp; Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<hr />
+
+@* All Books From Best Author Section*@
+<div class="custom-container pt-5">
+    <h2>@Model.BestSellingAuthor.Name</h2>
+    <h6><em>Popular books by bestselling author, @Model.BestSellingAuthor.Name!</em></h6>
+    <div class="row">
+        @foreach (var item in Model.TopPopularBooksByBestSellingAuthor)
+        {
+            <div class="col-12 col-md-2 mt-5">
+                <div class="card h-100">
+                    <img src="~/images/@item.PhotoURL" class="img-fluid" style="max-height: 350px;" />
+                    <div class="card-body">
+                        <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Title) </h5>
+                        <h6 class=""><em>by</em> @Html.DisplayFor(modelItem => item.AuthorName)</h6>
+                        <hr />
+                        <p class="card-text">Category: @Html.DisplayFor(modelItem => item.CategoryName)</p>
+                        <p class="card-text">Genre: @Html.DisplayFor(modelItem => item.Genre)</p>
+                        <p class="card-text">Book Type: @Html.DisplayFor(modelItem => item.BookType)</p>
+                        <button class="btn btn-secondary btn-block" id="addToWishlistFromPopularAuthor" onclick="AddToWishlist(@item.Id)">
+                            <i class="fas fa-plus"></i>  &nbsp; Add To Wishlist
+                        </button>
+                        <button class="btn btn-success btn-block" id="addToCartFromPopularAuthor" onclick="AddToCart(@item.Id)">
+                            <i class="fas fa-cart-plus"></i> &nbsp; Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@* All Books Section *@
+<div class="custom-container pt-5">
+    <h2>All Books!</h2>
+    <h6><em>List of all books!</em></h6>
+    <div class="row">
+        @foreach (var item in Model.AllBooks)
+        {
+            <div class="col-12 col-md-2 mt-5">
+                <div class="card h-100">
+                    <img src="~/images/@item.PhotoURL" class="img-fluid" style="max-height: 350px;" />
+                    <div class="card-body">
+                        <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Title) </h5>
+                        <h6 class=""><em>by</em> @Html.DisplayFor(modelItem => item.AuthorName)</h6>
+                        <hr />
+                        <p class="card-text">Category: @Html.DisplayFor(modelItem => item.CategoryName)</p>
+                        <p class="card-text">Genre: @Html.DisplayFor(modelItem => item.Genre)</p>
+                        <p class="card-text">Book Type: @Html.DisplayFor(modelItem => item.BookType)</p>
+
+
+                        <button class="btn btn-secondary btn-block" id="addtowishlist" onclick="AddToWishlist(@item.Id)">
+                            <i class="fas fa-plus"></i> &nbsp; Add To Wishlist
+                        </button>
+
+
+                        <button class="btn btn-success btn-block" id="addToCart" onclick="AddToCart(@item.Id)">
+                            <i class="fas fa-cart-plus"></i> &nbsp; Add To Cart
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#searchbook").keyup(function () {
+                var searchString = $("#searchbook").val();
+                if (searchString.length >= 2) { // console.log("> 2");
+                    window.location = 'Search/';
+                    //$.ajax({
+                    //    type: "GET",
+                    //    url: "/Search/Search?keywords=" + searchString,
+                    //    success: function (data) {
+                    //        console.log("Success");
+                    //        console.log(data);
+
+                    //    },
+                    //    error: function () {
+                    //        alert("error");
+                    //    }
+                    //});
+                }
+            });
+
+        });
+
+        function AddToWishlist(id) {
+            $.ajax({
+                type: "POST",
+                url: "/Home/AddToWishlist/" + id,
+                success: function (data) {
+                    //console.log(data);
+                    if (data.data != "") {
+                        new Noty({
+                            type: 'alert',
+                            layout: 'bottomLeft',
+                            timeout: 3000,
+                            text: 'Successfully Added To Wishlist',
+                            theme: 'sunset'
+                        }).show();
+                    } else {
+                        new Noty({
+                            type: 'error',
+                            layout: 'bottomLeft',
+                            timeout: 3000,
+                            progressBar: true,
+                            text: 'Book Already Exists In The Wishlist',
+                            theme: 'sunset'
+                        }).show();
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        };
+
+        function AddToCart(id) {
+            $.ajax({
+                type: "POST",
+                url: "/ShopCart/AddToCart/" + id,
+                success: function (data) {
+                    console.log("Success");
+                    console.log(data);
+                    new Noty({
+                        type: 'success',
+                        layout: 'bottomLeft',
+                        timeout: 3000,
+                        text: 'Added To Cart',
+                        theme: 'sunset'
+                    }).show();
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+
+    </script>
+
+}

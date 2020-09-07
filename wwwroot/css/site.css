@@ -1,0 +1,257 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* ------------------ Validation Messages Style --------------------*/
+.error {
+    color: crimson;
+    text-align: center;
+    width: 100%;
+    border-color: crimson;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.custom-container {
+    padding-left: 7em !important;
+    padding-right: 7em !important;
+}
+
+.btn-add-custom {
+    padding-left: 2em !important;
+    padding-right: 2em !important;
+}
+
+.btn-add-new-custom {
+    float: right !important;
+}
+
+a:not([href]):not([tabindex]).btn-add-new-custom {
+    color: white !important;
+}
+
+.bookcover-background {
+    background-image: url("../content/Books_shutterstock_hero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*padding: 13%;*/
+    padding-bottom: 21%;
+    padding-top: 5%;
+}
+
+.banner-text-style1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 35px;
+    padding-left: 5%;
+}
+
+.banner-text-style2 {
+    color: white;
+    text-transform: lowercase;
+    padding-left: 5%;
+    font-size: 35px;
+    font-family: papyrus;
+    margin-top: 1%;
+}
+
+.upload {
+    font-weight: bold;
+    color: #28a745;
+    margin-left: 15px;
+    line-height: 36px;
+}
+
+.upload-icon {
+    display: inline;
+    padding: 5px;
+}
+
+.btn-custom-upload {
+    border: 1px solid #469b88;
+    background: #dcf0eb;
+}
+
+.crud-title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.wrapper {
+    padding-left: 10em;
+    padding-right: 10em;
+}
+
+.detailsTable td:first-child {
+    font-weight: bold;
+}
+
+/* ================= modal dialogs style ================= */
+#modalDialogStyle {
+    max-width: 50% !important;
+}
+/* ================= modal dialogs end ================= */
+
+/* ================= card style ================= */
+.card-text {
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card-title {
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/* ================= card style - end ================= */
+
+/* ================= search home ================= */
+.search-main {
+    position: relative;
+    padding-left: 12em !important;
+    padding-right: 12em !important;
+}
+
+.search-btn {
+    position: absolute !important;
+    top: 23px;
+    right: 13em;
+    padding-left: 6em;
+    padding-right: 6em;
+}
+
+.search-btn-icon {
+    position: absolute !important;
+    top: 20px;
+    left: 10em;
+    font-size: 20px;
+}
+
+.search-box-style {
+    height: 50px;
+    padding-left: 3em;
+    padding-right: 11.6em;
+    font-size: 1.5em;
+    background-color: #eaeaea;
+}
+/* ================= search home - end ================= */
+/* ================= datatable style ================= */
+.table-action-btn {
+    color: white !important;
+}
+/* ================= datatable style - end ================= */
+
+
+.access-denied-header {
+    margin-top: 5em;
+}
+
+.access-denied-h1 {
+    font-size: 4em;
+}
+
+.access-denied-p {
+    font-size: 2em;
+}
+
+/* Wishlist */
+
+.total-style {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    border-top: 2px solid #acacac !important;
+    border-bottom: 2px solid #acacac !important;
+}
+
+.wishlist-header {
+    border-top: 2px solid #acacac !important;
+    border-bottom: 2px solid #acacac !important;
+}
+
+/* Shopping Cart*/
+
+.borderStyle {
+    border-right: 1px solid #b4b4b4;
+}
+
+.bagde-position {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
